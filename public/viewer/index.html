@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Convocation Day 2025 - Trực Tiếp</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://unpkg.com/video.js@8/dist/video-js.min.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Inter', sans-serif;
+		}
+
+		.gradient-bg {
+			background: linear-gradient(135deg, #ff6b35 0%, #f7931e 25%, #ff8c42 50%, #ff6b35 75%, #e84a27 100%);
+			background-size: 400% 400%;
+			animation: gradient 15s ease infinite;
+		}
+
+		@keyframes gradient {
+			0% {
+				background-position: 0% 50%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+
+		.glass-effect {
+			background: rgba(255, 255, 255, 0.1);
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+		}
+
+		.shine {
+			position: relative;
+			overflow: hidden;
+		}
+
+		.shine::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+			animation: shine 3s infinite;
+		}
+
+		@keyframes shine {
+			0% {
+				left: -100%;
+			}
+
+			100% {
+				left: 100%;
+			}
+		}
+
+		.pulse-ring {
+			animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+		}
+
+		@keyframes pulse-ring {
+
+			0%,
+			100% {
+				opacity: 1;
+				transform: scale(1);
+			}
+
+			50% {
+				opacity: 0.5;
+				transform: scale(1.05);
+			}
+		}
+	</style>
+</head>
+
+<body class="gradient-bg min-h-screen">
+	<div class="container mx-auto px-4 py-8 max-w-6xl">
+		<!-- Header -->
+		<header class="text-center mb-8 animate-fade-in">
+			<div class="inline-flex items-center justify-center mb-4">
+				<div class="w-20 h-20 rounded-full glass-effect flex items-center justify-center shine">
+					<svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+						</path>
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+					</svg>
+				</div>
+			</div>
+			<h1 class="text-4xl md:text-6xl font-bold text-white mb-3 drop-shadow-lg">
+				CONVOCATION DAY 2025
+			</h1>
+			<p class="text-xl md:text-2xl text-white/90 font-light tracking-wide">
+				Lễ Trao Bằng Tốt Nghiệp - Trực Tiếp
+			</p>
+		</header>
+
+		<!-- Main Content -->
+		<main class="space-y-6">
+			<!-- Video Player Card -->
+			<div class="glass-effect rounded-3xl p-6 shadow-2xl">
+				<div id="player-wrapper" class="hidden">
+					<div class="relative rounded-2xl overflow-hidden bg-black shadow-2xl" style="padding-top: 56.25%;">
+						<video id="viewer-player"
+							class="video-js vjs-big-play-centered vjs-default-skin absolute top-0 left-0 w-full h-full"
+							controls preload="auto" playsinline poster="" data-setup="{}"></video>
+					</div>
+				</div>
+
+				<div id="viewer-empty" class="text-center py-16 px-6">
+					<div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-white/10 mb-6">
+						<svg class="w-12 h-12 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
+							</path>
+						</svg>
+					</div>
+					<h3 class="text-2xl font-semibold text-white mb-3">Chưa có luồng phát</h3>
+					<p class="text-white/80 mb-4">Vui lòng cung cấp đường dẫn HLS manifest trong query string</p>
+					<code class="inline-block bg-black/30 text-white/90 px-4 py-2 rounded-lg text-sm">
+                        ?src=https://example.com/hls/channel/index.m3u8&title=Lễ Tốt Nghiệp
+                    </code>
+				</div>
+
+				<!-- Status Badges -->
+				<div class="flex flex-wrap gap-3 mt-6">
+					<span id="badge-status"
+						class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white">
+						<span class="w-2 h-2 rounded-full bg-white/60 mr-2"></span>
+						Đang chờ nguồn
+					</span>
+					<span id="badge-storage"
+						class="hidden inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white">
+						<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4">
+							</path>
+						</svg>
+						<span id="storage-text"></span>
+					</span>
+				</div>
+			</div>
+
+			<!-- Info Cards -->
+			<div class="grid md:grid-cols-3 gap-4">
+				<div class="glass-effect rounded-2xl p-6 text-center">
+					<div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3">
+						<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-white font-semibold mb-1">Trực Tiếp</h3>
+					<p class="text-white/80 text-sm">Phát sóng trực tiếp</p>
+				</div>
+				<div class="glass-effect rounded-2xl p-6 text-center">
+					<div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3">
+						<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-white font-semibold mb-1">Chất Lượng HD</h3>
+					<p class="text-white/80 text-sm">Hình ảnh sắc nét</p>
+				</div>
+				<div class="glass-effect rounded-2xl p-6 text-center">
+					<div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3">
+						<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
+							</path>
+						</svg>
+					</div>
+					<h3 class="text-white font-semibold mb-1">HLS Streaming</h3>
+					<p class="text-white/80 text-sm">Công nghệ hiện đại</p>
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<footer class="text-center mt-12 text-white/60 text-sm">
+			<p>Convocation Day 2025 &middot; Trình phát video độc lập &middot; Hỗ trợ mọi định dạng HLS</p>
+		</footer>
+	</div>
+
+	<script src="https://unpkg.com/video.js@8/dist/video.min.js"></script>
+	<script>
+		(function () {
+			const params = new URLSearchParams(window.location.search);
+			const source = params.get('src') || params.get('source') || '';
+			const title = params.get('title') || 'CONVOCATION DAY 2025';
+			const description = params.get('description') || 'Lễ Trao Bằng Tốt Nghiệp - Trực Tiếp';
+			const poster = params.get('poster') || '';
+			const storage = params.get('storage') || '';
+			const autoplay = params.get('autoplay') === 'true';
+			const mutedParam = params.get('muted');
+			const muted = mutedParam === null ? true : mutedParam === 'true';
+
+			document.title = title + ' - Trực Tiếp';
+
+			if (storage.length !== 0) {
+				const badge = document.getElementById('badge-storage');
+				const storageText = document.getElementById('storage-text');
+				storageText.textContent = storage;
+				badge.classList.remove('hidden');
+			}
+
+			if (!source) {
+				return;
+			}
+
+			const wrapper = document.getElementById('player-wrapper');
+			const empty = document.getElementById('viewer-empty');
+			const statusBadge = document.getElementById('badge-status');
+
+			empty.classList.add('hidden');
+			wrapper.classList.remove('hidden');
+
+			const player = videojs('viewer-player', {
+				autoplay: autoplay ? (muted ? 'muted' : true) : false,
+				muted: muted,
+				controls: true,
+				liveui: true,
+				responsive: true,
+				fill: true,
+				poster: poster,
+				html5: {
+					vhs: {
+						overrideNative: true,
+					},
+				},
+				sources: [
+					{
+						src: source,
+						type: 'application/x-mpegURL',
+					},
+				],
+			});
+
+			player.on('playing', () => {
+				statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-red-500 mr-2 pulse-ring"></span>Đang phát trực tiếp';
+				statusBadge.className = 'inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-red-500/30 text-white border border-red-400/50';
+			});
+
+			player.on('waiting', () => {
+				statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-yellow-500 mr-2"></span>Đang tải...';
+				statusBadge.className = 'inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-500/30 text-white border border-yellow-400/50';
+			});
+
+			player.on('error', () => {
+				statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-gray-500 mr-2"></span>Lỗi kết nối';
+				statusBadge.className = 'inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-500/30 text-white border border-gray-400/50';
+			});
+		})();
+	</script>
+</body>
+
+</html>
