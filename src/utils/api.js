@@ -1,7 +1,7 @@
 class API {
 	constructor(address) {
 		this.base = '/api';
-		this.address = 'http://143.198.84.82:8085';
+		this.address = 'http://210.245.25.74:8080';
 		this.token = '';
 
 		this.cache = new Map();
